@@ -1,9 +1,7 @@
 <?php
 require(__ROOT__.'/controllers/Controller.php');
 require_once(__ROOT__.'/model/SqliteConnection.php');
-
 require_once (__ROOT__.'/model/User.php');
-require_once (__ROOT__.'/model/UserDAO.php');
 
 class ConnectUserController extends Controller{
  

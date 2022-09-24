@@ -14,6 +14,8 @@ require_once (CONTROLLERS_DIR.'/ApplicationController.php');
 ApplicationController::getInstance()->addRoute('connect', CONTROLLERS_DIR.'/connect.php');
 ApplicationController::getInstance()->addRoute('apropos',CONTROLLERS_DIR.'/apropos.php');
 ApplicationController::getInstance()->addRoute('user_add',CONTROLLERS_DIR.'/user_add.php');
+ApplicationController::getInstance()->addRoute('disconnect',CONTROLLERS_DIR.'/disconnect.php');
+ApplicationController::getInstance()->addRoute('upload',CONTROLLERS_DIR.'/upload.php');
 
 // Process the request
 ApplicationController::getInstance()->process();

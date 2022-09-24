@@ -5,5 +5,9 @@
 <a href="/apropos">Click here to display the author.</a>
 <br>
 <a href="/user_add">Click here to display the inscription form.</a>
+<br>
+<a href="/disconnect">Click here to disconnect.</a>
+<br>
+<a href="/upload">Click here to upload a data file in json.</a>
             
 <?php include VIEWS_DIR."/footer.html"; ?>

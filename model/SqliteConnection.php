@@ -11,7 +11,7 @@ class SqliteConnection {
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             echo $e->getMessage();
-        }
+        } 
     }
 
     public static function getInstance(){
