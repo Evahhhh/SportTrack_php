@@ -24,7 +24,7 @@ class AddUserController extends Controller{
             // execute the prepared statement
             $stmt->execute();
             $user = $stmt->fetch();
-            
+             
              if ($user) {
                 // email existe
                 $this->render('error',$data=["Vous possédez déjà un compte avec cette adresse mail."]);
@@ -34,7 +34,8 @@ class AddUserController extends Controller{
                 $us->init(123,$request["nom"],$request["prenom"],$request["datenaiss"],$request["sexe"],
                         floatval($request["taille"]),floatval($request["poids"]),$request["mail"],$request["mdp"]);
                 UserDAO::getInstance()->insert($us);
-                //get id of the database
+
+                //get user of the database
                 $query = "SELECT * FROM User WHERE email = :mail";
                 $stmt = $SQLiteConnect->prepare($query);
                 $stmt->bindValue(':mail',$us->getEmail(),PDO::PARAM_STR);

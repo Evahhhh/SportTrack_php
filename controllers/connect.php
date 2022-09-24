@@ -16,7 +16,7 @@ class ConnectUserController extends Controller{
             $email = $request["mail"];
             $mdp = $request["mdp"];
 
-            //vérifier si le user existe dans la abse de données
+            //vérifier si le user existe dans la base de données
             $stmt = $SQLiteConnect->prepare("SELECT * FROM User WHERE email=:email AND password=:mdp");
            
             //bind the parameters

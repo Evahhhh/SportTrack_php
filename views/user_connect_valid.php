@@ -1,8 +1,7 @@
-<?php
+<?php include VIEWS_DIR."/header.html";
 
-include VIEWS_DIR."/header.html";
+echo "Connexion réussie"; ?><br><br>
 
-echo "Connexion réussie";
+<button><a href="/">Revenir au menu</a></button>
 
-include VIEWS_DIR."/footer.html";
-?>
+<?php include VIEWS_DIR."/footer.html"; ?>
