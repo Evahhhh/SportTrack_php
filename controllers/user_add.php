@@ -15,8 +15,8 @@ class AddUserController extends Controller{
         try{
             $SQLiteConnect = SqliteConnection::getInstance()->getConnection();
             $email = $request["mail"];
+            $mdp = $request["mdp"];
         
-            // $stmt = $SQLiteConnect->prepare("SELECT name FROM sqlite_schema WHERE type='table' AND name NOT LIKE 'sqlite_%';");
             $stmt = $SQLiteConnect->prepare("SELECT * FROM User WHERE email=:email");
             // bind the paramaters
             $stmt->bindValue(':email',$email,PDO::PARAM_STR);
@@ -27,7 +27,6 @@ class AddUserController extends Controller{
             
              if ($user) {
                 // email existe
-                // $data["message"] = "Vous possédez déjà un compte avec cette adresse mail.";
                 $this->render('error',$data=["Vous possédez déjà un compte avec cette adresse mail."]);
             } else {
                 // email n'existe pas
