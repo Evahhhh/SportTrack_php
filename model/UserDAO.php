@@ -5,7 +5,7 @@ class UserDAO {
 
     private function __construct() {}
 
-    public static function getInstance(): UserDAO {
+    public static function getInstance(): UserDAO { 
         if(!isset(self::$dao)) {
             self::$dao= new UserDAO();
         }
@@ -40,7 +40,19 @@ class UserDAO {
 
             // execute the prepared statement
             $stmt->execute();
-            // User::setId($stmt);
+
+            //change the id by the database one
+            // prepare the SQL statement
+            $query = "SELECT idUser FROM User WHERE email = :mail";
+            $stmt = $dbc->prepare($query);
+            // bind the paramaters
+            $stmt->bindValue(':mail',$st->getEmail(),PDO::PARAM_STR);
+            // execute the prepared statement
+            $stmt->execute();
+            $idUser = $stmt->fetch();
+            $idUser = (int)$idUser["idUser"];
+            //change
+            $st->setID($idUser);
         }
     }
 
@@ -62,11 +74,11 @@ class UserDAO {
             $dbc = SqliteConnection::getInstance()->getConnection();
             try{
                 // prepare the SQL statement
-                $query = "delete from User where idUser = :id";
+                $query = "delete from User where email = :email";
                 $stmt = $dbc->prepare($query);
 
                 // bind the paramaters
-                $stmt->bindValue(':id',$obj->getID(),PDO::PARAM_STR);
+                $stmt->bindValue(':email',$obj->getEmail(),PDO::PARAM_STR);
 
                 // execute the prepared statement
                 $stmt->execute();

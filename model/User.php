@@ -1,7 +1,7 @@
 <?php
 class User{
     private int $idUser;
-    private string $lName;
+    private string $lName; 
     private string $fName;
     private string $birthDate;
     private string $gender;
@@ -24,9 +24,9 @@ class User{
         $this->password = $pw;
     }
 
-    // public function setId($id){
-    //     $this->idUser = $id;
-    // }
+    public function setId($id){
+        $this->idUser = $id;
+    }
 
     public function getID(): int { return $this->idUser; }
     public function getLName(): string { return $this->lName; }
