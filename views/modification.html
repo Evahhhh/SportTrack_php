@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Modification</title>
+    </html>
+    <body>
+    
+    <h2>Modifiez vos informations</h2>
+
+    <form>
+        <label for="nom">Nom :</label><br>
+        <input type="text" id="nom" name="nom" disabled><br>
+
+        <label for="prenom">Prénom :</label><br>
+        <input type="text" id="prenom" name="prenom" disabled><br>
+
+        <label for="datenaiss">Date de naissance :</label><br>
+        <input type="date" id="datenaiss" name="datenaiss" disabled><br>
+
+        <p>Sexe :</p>
+        <input type="radio" id="masc" name="fav_language" value="masc" >
+        <label for="masc">Masculin</label><br>
+        <input type="radio" id="fem" name="fav_language" value="fem" checked>
+        <label for="fem">Féminin</label><br>
+        <input type="radio" id="nb" name="fav_language" value="nb" >
+        <label for="nb">Non binaire</label><br><br>
+
+        <label for="taille">Taille :</label><br>
+        <input type="number" id="taille" name="taille" ><br>
+
+        <label for="poids">Poids :</label><br>
+        <input type="number" id="poids" name="poids" ><br>
+
+        <label for="mail">Adresse électronique :</label><br>
+        <input type="email" id="mail" pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}" name="mail" ><br>
+
+        <label for="mdp">Mot de passe :</label><br>
+        <input type="password" id="mdp" name="mdp" minlength="8" ><br><br>
+
+        <input type="submit" value="Enregistrer">
+
+    </form>
+    </body>
+</html>
