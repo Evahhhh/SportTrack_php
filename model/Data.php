@@ -19,6 +19,10 @@ class Data{
         $this->idAct = $idA;
     }
 
+    public function setId($id){
+        $this->idData = $id;
+    }
+
     public function getIdData(): int { return $this->idData; }
     public function getTime(): string { return $this->time; }
     public function getCardiacFreq(): int { return $this->cardiacFreq; }

@@ -25,7 +25,7 @@
     <input type="number" id="poids" name="poids" required ><br>
 
     <label for="mail">Adresse électronique :</label><br>
-    <input type="email" id="mail" pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}" name="mail" required onkeyup="javascript:nospaces(this)" onkeydown="javascript:nospaces(this)"><br>
+    <input type="email" id="mail" pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}" name="mail" required ><br>
 
     <label for="mdp">Mot de passe :</label><br>
     <input type="password" id="mdp" name="mdp" minlength="8" required><br><br>

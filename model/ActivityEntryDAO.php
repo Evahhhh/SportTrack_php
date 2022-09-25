@@ -38,6 +38,25 @@ class ActivityEntryDAO {
 
             // execute the prepared statement
             $stmt->execute();
+
+            //change the id by the database one
+            // prepare the SQL statement
+            $query = "SELECT idData FROM Data WHERE idAct = :id AND time = :t AND cardiacFreq = :cFreq
+                    AND longitude =:long AND latitude=:lat AND altitude=:alt";
+            $stmt = $dbc->prepare($query);
+            // bind the paramaters
+            $stmt->bindValue(':t',$st->getTime(),PDO::PARAM_STR);
+            $stmt->bindValue(':long',$st->getLongitude(),PDO::PARAM_STR);
+            $stmt->bindValue(':lat',$st->getLatitude(),PDO::PARAM_STR);
+            $stmt->bindValue(':alt',$st->getAltitude(),PDO::PARAM_STR);
+            $stmt->bindValue(':cFreq',$st->getCardiacFreq(),PDO::PARAM_STR);
+            $stmt->bindValue(':id',$st->getIdAct(),PDO::PARAM_STR);
+            // execute the prepared statement
+            $stmt->execute();
+            $idData = $stmt->fetch();
+            $idData = (int)$idData["idData"];
+            //change
+            $st->setID($idData);
         }
     }
 

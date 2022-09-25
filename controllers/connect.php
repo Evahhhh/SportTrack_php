@@ -27,7 +27,7 @@ class ConnectUserController extends Controller{
                     $exist = true;
                     $infs = $tab;                       //suavegarder les infos du user pour la session
                 }
-            }
+            } 
 
             if ($exist) {
                 // le compte existe
@@ -43,6 +43,7 @@ class ConnectUserController extends Controller{
                 $_SESSION['taille'] = $infs[5];
                 $_SESSION['poids'] = $infs[6];
                 $_SESSION['mail'] = $email;
+                $_SESSION['mdp'] = $mdp;
 
                 $this->render('user_connect_valid',[]);
             }else{
