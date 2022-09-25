@@ -1,7 +1,7 @@
 <?php
 require(__ROOT__.'/controllers/Controller.php');
-require_once(__ROOT__.'/model/SqliteConnection.php');
 require_once (__ROOT__.'/model/User.php');
+require_once (__ROOT__.'/model/UserDAO.php');
 
 class ConnectUserController extends Controller{
  
@@ -11,35 +11,37 @@ class ConnectUserController extends Controller{
 
     public function post($request){
         try{
-            $SQLiteConnect = SqliteConnection::getInstance()->getConnection();
-            //récupérer mail et mdp
+            //récupérer mail et mdp du formualaire
             $email = $request["mail"];
             $mdp = $request["mdp"];
 
             //vérifier si le user existe dans la base de données
-            $stmt = $SQLiteConnect->prepare("SELECT * FROM User WHERE email=:email AND password=:mdp");
-           
-            //bind the parameters
-            $stmt->bindValue(':email',$email,PDO::PARAM_STR);
-            $stmt->bindValue(':mdp',$mdp,PDO::PARAM_STR);
+            $exist = false;
+            $userAll = UserDAO::getInstance()->findAll();    //Rescence tout les user par id
 
-            // execute the prepared statement
-            $stmt->execute();
-            $user = $stmt->fetch();
+            foreach ($userAll as $key => $value) {      //key = un user $value = ses infos
+                $tab = explode(' ',$value);             //convertir la ligne de valeurs en un tableau de valeurs pour chaque user
+                $mail = $tab[7];                        //récupérer le mail du user
+                $passw = $tab[8];                       //récupérer le mot de passe du user
+                if($email==$mail and $mdp==$passw){     //si le mail du user actuel et le mot de passe sont les même que celui qui veux se connecter : exist = true
+                    $exist = true;
+                    $infs = $tab;                       //suavegarder les infos du user pour la session
+                }
+            }
 
-            if ($user) {
+            if ($exist) {
                 // le compte existe
                 //démarrage de la session
                 session_start();
 
                 //définition des variables de session
-                $_SESSION['idUser'] = $user["idUser"];
-                $_SESSION['nom'] = $user["lName"];
-                $_SESSION['prenom'] = $user["fName"];
-                $_SESSION['dateNaiss'] = $user["birthDate"];
-                $_SESSION['sexe'] = $user["gender"];
-                $_SESSION['taille'] = $user["size"];
-                $_SESSION['poids'] = $user["weight"];
+                $_SESSION['idUser'] = $infs[0];
+                $_SESSION['prenom'] = $infs[1];
+                $_SESSION['nom'] = $infs[2];
+                $_SESSION['dateNaiss'] = $infs[3];
+                $_SESSION['sexe'] = $infs[4];
+                $_SESSION['taille'] = $infs[5];
+                $_SESSION['poids'] = $infs[6];
                 $_SESSION['mail'] = $email;
 
                 $this->render('user_connect_valid',[]);

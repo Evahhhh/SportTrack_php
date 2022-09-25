@@ -1,7 +1,11 @@
 <?php
 require(__ROOT__.'/controllers/Controller.php');
-require_once(__ROOT__.'/model/SqliteConnection.php');
 require_once (__ROOT__.'/model/User.php');
+require_once (__ROOT__.'/model/Activites.php');
+require_once (__ROOT__.'/model/Data.php');
+require_once (__ROOT__.'/model/ActivityDAO.php');
+require_once (__ROOT__.'/model/ActivityEntryDAO.php');
+
 
 class UploadActivityController extends Controller{
  
@@ -33,7 +37,7 @@ class UploadActivityController extends Controller{
                 $data = new Data();
 
                 // TODO AJOUTER LE CONTENU DU JSON DANS LA BDD
-                
+
 
             }else{
                 //si aucun user connecté, renvoyer vers la page de connexion

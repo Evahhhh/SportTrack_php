@@ -2,10 +2,10 @@
 
 <form action="/user_add" method="post">
     <label for="nom">Nom :</label><br>
-    <input type="text" id="nom" name="nom" required><br>
+    <input type="text" id="nom" pattern="^\S+$" name="nom" required><br>
 
     <label for="prenom">Prénom :</label><br>
-    <input type="text" id="prenom" name="prenom" required><br>
+    <input type="text" id="prenom" pattern="^\S+$" name="prenom" required><br>
 
     <label for="datenaiss">Date de naissance :</label><br>
     <input type="date" id="datenaiss" name="datenaiss" required><br>
@@ -22,10 +22,10 @@
     <input type="number" id="taille" name="taille" required><br>
 
     <label for="poids">Poids :</label><br>
-    <input type="number" id="poids" name="poids" required><br>
+    <input type="number" id="poids" name="poids" required ><br>
 
     <label for="mail">Adresse électronique :</label><br>
-    <input type="email" id="mail" pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}" name="mail" required><br>
+    <input type="email" id="mail" pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}" name="mail" required onkeyup="javascript:nospaces(this)" onkeydown="javascript:nospaces(this)"><br>
 
     <label for="mdp">Mot de passe :</label><br>
     <input type="password" id="mdp" name="mdp" minlength="8" required><br><br>
