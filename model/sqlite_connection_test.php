@@ -11,7 +11,7 @@ require_once 'ActivityEntryDAO.php';
 try{
     $SQLiteConnect = SqliteConnection::getInstance()->getConnection();
 
-    UserDAO::getInstance()->deleteAll();
+    UserDAO::getInstance()->deleteAll(); 
     ActivityDAO::getInstance()->deleteAll();
     ActivityEntryDAO::getInstance()->deleteAll();
 
@@ -113,8 +113,9 @@ try{
     echo "Suppresion de Romain DUPONT avec l'id 1 : ";
     var_dump($SQLiteConnect->query($queryUser)->fetchAll());
 
-    echo "Insertion d'un utilisateur avec un même id (erreur provoquée) : ";
-    UserDAO::getInstance()->insert($Sand);
+    UserDAO::getInstance()->deleteAll(); 
+    ActivityDAO::getInstance()->deleteAll();
+    ActivityEntryDAO::getInstance()->deleteAll();
     
 }catch(Exception $e){
     echo $e->getMessage();

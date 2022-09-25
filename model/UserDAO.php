@@ -40,7 +40,7 @@ class UserDAO {
 
             // execute the prepared statement
             $stmt->execute();
-
+ 
             //change the id by the database one
             // prepare the SQL statement
             $query = "SELECT idUser FROM User WHERE email = :mail";
