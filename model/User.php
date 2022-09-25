@@ -16,7 +16,7 @@ class User{
         $this->idUser = $id;
         $this->lName = $lN;
         $this->fName = $fN;
-        $this->birthDate = $birth; 
+        $this->birthDate = $birth;   
         $this->gender = $g;
         $this->size = $s;
         $this->weight = $w;

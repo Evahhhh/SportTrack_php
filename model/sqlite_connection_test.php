@@ -53,6 +53,7 @@ try{
     $stmt->execute();
     $idSand = $stmt->fetch();
     $idSand= (int)$idSand["idUser"];
+    
     $Activity1->init(1,"Je vais au foot", "21/09/2022","21h00","3h",30,80,110,140, $idRom);
     $Activity2->init(2,"Je vais à la danse", "21/10/2022","09h00","1h",3,90,100,120, $idSand);
     ActivityDAO::getInstance()->insert($Activity1);

@@ -2,10 +2,10 @@
 class Activities{
     private int $idAct;
     private string $description;
-    private string $date;
+    private string $date; 
     private string $startTime;
     private string $duration;
-    private float $distance;
+    private float $distance;        //en km
     private int $cardiacFreqMin;
     private int $cardiacFreqAvg;
     private int $cardiacFreqMax;
