@@ -1,9 +1,12 @@
 <?php
-
 include VIEWS_DIR."/header.html";
-
-foreach ($data as $value) {
-    echo $value.'<br>'; 
+echo('<pre>');
+var_dump($data);
+echo('</pre>');
+foreach ($data as $activity) {
+    echo('<pre>');
+    var_dump ($activity); 
+    echo('</pre>');
 }
 
 include VIEWS_DIR."/footer.html";

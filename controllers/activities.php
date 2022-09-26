@@ -12,10 +12,24 @@ class ListActivityController extends Controller{
 
             //vérifier si le user est connecté
             if($_SESSION){
-                
-                
-                
-                $this->render('list_activities',$data=[]);
+                $acts = array();
+                $actAll = ActivityDAO::getInstance()->findAll(); 
+                foreach ($actAll as $key => $value) {      //key = une activité $value = ses infos
+                    if($value->getIdUser() == $_SESSION['idUser']){
+                        $data = array(
+                            $value->getDescription(),
+                            $value->getDate(),
+                            $value->getStartTime(),
+                            $value->getDuration(),
+                            $value->getDistance(),
+                            $value->getCardiacFreqMin(),
+                            $value->getCardiacFreqAvg(),
+                            $value->getCardiacFreqMax());
+                    } 
+                    array_push($acts,$data);
+                } 
+
+                $this->render('list_activities',$acts);
             }else{
                 //si aucun user connecté, renvoyer vers la page de connexion
                 $this->render('user_connect_form',[]);

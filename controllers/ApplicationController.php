@@ -46,9 +46,6 @@ class ApplicationController{
      */
     public function addRoute($path, $ctrl){
         $filePath = $ctrl;
-        // if(!str_ends_with($ctrl, '.php')){
-        //     $filePath = $filePath.".php";    
-        // }
         if(!$this->ends_with($ctrl, '.php')){
             $filePath = $filePath.".php";    
         }
@@ -111,9 +108,6 @@ class ApplicationController{
         $path = $this->request_path();
         if (array_key_exists($path, $this->routes)){
             $filePath = $this->routes[$path];
-            // if(!str_ends_with($filePath, '.php')){
-            //     $filePath = $filePath.".php";    
-            // }
 
             if(!$this->ends_with($filePath, '.php')){
                 $filePath = $filePath.".php";    
@@ -147,9 +141,6 @@ class ApplicationController{
                 break;
             }
         }
-        // if (isset($this->routes[$path]) AND is_callable($this->routes[$path])) {
-        //     $this->routes[$path]();
-        // }
         else {
             $this->routes['error'];
         }

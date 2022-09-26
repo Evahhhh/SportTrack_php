@@ -11,7 +11,7 @@ class ConnectUserController extends Controller{
 
     public function post($request){
         try{
-            //récupérer mail et mdp du formualaire
+            //récupérer mail et mdp du formulaire
             $email = $request["mail"];
             $mdp = $request["mdp"];
 
@@ -25,7 +25,7 @@ class ConnectUserController extends Controller{
                 $passw = $tab[8];                       //récupérer le mot de passe du user
                 if($email==$mail and $mdp==$passw){     //si le mail du user actuel et le mot de passe sont les même que celui qui veux se connecter : exist = true
                     $exist = true;
-                    $infs = $tab;                       //suavegarder les infos du user pour la session
+                    $infs = $tab;                       //sauvegarder les infos du user pour la session
                 }
             } 
 
