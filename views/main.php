@@ -11,5 +11,7 @@
 <a href="/upload">Click here to upload a data file in json.</a>
 <br>
 <a href="/update_user">Click here to update your informations.</a>
+<br>
+<a href="/activities">Click here to click here to see your activities.</a>
             
 <?php include VIEWS_DIR."/footer.html"; ?>

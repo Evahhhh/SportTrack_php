@@ -76,7 +76,7 @@ try{
     $stmt->bindValue(':id',$idSand,PDO::PARAM_STR);
     $stmt->execute();
     $idActSand = $stmt->fetch();
-    $idActSand = (int)$idActSand["idAct"];
+    $idActSand = (int)$idActSand["idAct"];  
 
     $Data1->init(1,"9h00",94,1.24, 24.6, 294, $idActRom); 
     $Data2->init(2,"18h00",123, 1.82, 41.9, 300, $idActSand);

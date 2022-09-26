@@ -17,7 +17,7 @@ class Activities{
         $this->description = $desc; 
         $this->date = $date;
         $this->startTime = $start;
-        $this->duration = $dur;
+        $this->duration = $dur; 
         $this->distance = $dist;
         $this->cardiacFreqMin = $cFrqMin;
         $this->cardiacFreqAvg = $cFrqAvg;
